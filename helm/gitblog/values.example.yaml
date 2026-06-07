@@ -1,0 +1,32 @@
+frontend:
+  replicaCount: 2
+
+  image:
+    repository: <your-repo-url>
+    tag: <image-tag>
+
+  service:
+    port: 80
+
+backend:
+  replicaCount: 2
+
+  image:
+    repository: <your-repo-url>
+    tag: <image-tag>
+
+  service:
+    port: 5000
+
+config:
+  DB_HOST: <your-rds-endpoint>
+  DB_PORT: "5432"
+  DB_NAME: <db-name>
+
+secret:
+  DB_USER: <db-username>
+  DB_PASSWORD: <db-password>
+  JWT_SECRET: <jwt-secret-key>
+
+ingress:
+  enabled: true
