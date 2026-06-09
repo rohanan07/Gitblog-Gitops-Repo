@@ -1,5 +1,5 @@
 frontend:
-  replicaCount: 2
+  replicaCount: 3
 
   image:
     repository: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend
