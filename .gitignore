@@ -25,7 +25,7 @@ charts/
 # Local overrides
 values-local.yaml
 values-dev-local.yaml
-values.yaml
+#values.yaml
 
 # Kubernetes configs
 *.kubeconfig
