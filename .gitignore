@@ -33,3 +33,5 @@ values-dev-local.yaml
 # Environment files
 .env
 .env.*
+
+gitblog-backup.yaml*

@@ -1,9 +1,11 @@
+image:
+  tag: "initial"
+
 frontend:
   replicaCount: 2
 
   image:
     repository: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend
-    tag: "2.0"
 
   service:
     port: 80
@@ -13,7 +15,6 @@ backend:
 
   image:
     repository: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend
-    tag: "4.0"
 
   service:
     port: 5000
