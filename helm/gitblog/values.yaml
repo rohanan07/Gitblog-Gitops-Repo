@@ -1,31 +1,22 @@
 image:
-  tag: "initial"
-
+  tag: "4692a89"
 frontend:
   replicaCount: 2
-
   image:
     repository: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend
-
   service:
     port: 80
-
 backend:
   replicaCount: 2
-
   image:
     repository: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend
-
   service:
     port: 5000
-
 config:
   DB_HOST: gitblog-dev.cfwa8iu8yfep.ap-south-1.rds.amazonaws.com
   DB_PORT: "5432"
   DB_NAME: gitblog
-
 ingress:
   enabled: true
-
 externalSecrets:
   enabled: true
