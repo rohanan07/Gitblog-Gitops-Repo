@@ -1,0 +1,1620 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2026-06-07T21:42:49+05:30"
+    creationTimestamp: "2026-06-07T16:12:49Z"
+    generateName: backend-86466d6dcc-
+    labels:
+      app: backend
+      pod-template-hash: 86466d6dcc
+    name: backend-86466d6dcc-8qtz7
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: backend-86466d6dcc
+      uid: 1a653558-7c5e-4cd2-a1b1-b5e2e2c514a9
+    resourceVersion: "230360"
+    uid: 411d349e-350d-4ac2-b394-3cd0be5c1a41
+  spec:
+    containers:
+    - env:
+      - name: PORT
+        value: "5000"
+      - name: DB_HOST
+        valueFrom:
+          configMapKeyRef:
+            key: DB_HOST
+            name: gitblog-config
+      - name: DB_PORT
+        valueFrom:
+          configMapKeyRef:
+            key: DB_PORT
+            name: gitblog-config
+      - name: DB_NAME
+        valueFrom:
+          configMapKeyRef:
+            key: DB_NAME
+            name: gitblog-config
+      - name: DB_USER
+        valueFrom:
+          secretKeyRef:
+            key: DB_USER
+            name: gitblog-secret
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: DB_PASSWORD
+            name: gitblog-secret
+      - name: JWT_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: JWT_SECRET
+            name: gitblog-secret
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+      imagePullPolicy: IfNotPresent
+      name: backend
+      ports:
+      - containerPort: 5000
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9jfcf
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: ip-10-0-12-195.ap-south-1.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-9jfcf
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:50Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:49Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:49Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://c97f6c6cf42f8ccdcbc8c42f9e9b4eab889f819caffff97b07589510a082719d
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+      imageID: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend@sha256:dd4ab891749349951c5942771580c0cedb471d017e70647f16bae6df62d9ae45
+      lastState: {}
+      name: backend
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-07T16:12:49Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9jfcf
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.0.12.195
+    hostIPs:
+    - ip: 10.0.12.195
+    phase: Running
+    podIP: 10.0.12.99
+    podIPs:
+    - ip: 10.0.12.99
+    qosClass: BestEffort
+    startTime: "2026-06-07T16:12:49Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2026-06-07T21:42:49+05:30"
+    creationTimestamp: "2026-06-07T16:12:50Z"
+    generateName: backend-86466d6dcc-
+    labels:
+      app: backend
+      pod-template-hash: 86466d6dcc
+    name: backend-86466d6dcc-hn9rx
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: backend-86466d6dcc
+      uid: 1a653558-7c5e-4cd2-a1b1-b5e2e2c514a9
+    resourceVersion: "230403"
+    uid: def53e1d-7744-42d7-b7fa-f7d6c4ca5efb
+  spec:
+    containers:
+    - env:
+      - name: PORT
+        value: "5000"
+      - name: DB_HOST
+        valueFrom:
+          configMapKeyRef:
+            key: DB_HOST
+            name: gitblog-config
+      - name: DB_PORT
+        valueFrom:
+          configMapKeyRef:
+            key: DB_PORT
+            name: gitblog-config
+      - name: DB_NAME
+        valueFrom:
+          configMapKeyRef:
+            key: DB_NAME
+            name: gitblog-config
+      - name: DB_USER
+        valueFrom:
+          secretKeyRef:
+            key: DB_USER
+            name: gitblog-secret
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: DB_PASSWORD
+            name: gitblog-secret
+      - name: JWT_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: JWT_SECRET
+            name: gitblog-secret
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+      imagePullPolicy: IfNotPresent
+      name: backend
+      ports:
+      - containerPort: 5000
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-fh594
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: ip-10-0-12-195.ap-south-1.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-fh594
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:51Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:50Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:51Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:51Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T16:12:50Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://5feceb55f83be379a8876560c276501d0311fb28882d39c95e42119779fae382
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+      imageID: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend@sha256:dd4ab891749349951c5942771580c0cedb471d017e70647f16bae6df62d9ae45
+      lastState: {}
+      name: backend
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-07T16:12:50Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-fh594
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.0.12.195
+    hostIPs:
+    - ip: 10.0.12.195
+    phase: Running
+    podIP: 10.0.12.203
+    podIPs:
+    - ip: 10.0.12.203
+    qosClass: BestEffort
+    startTime: "2026-06-07T16:12:50Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    generateName: frontend-6bcc6d4989-
+    labels:
+      app: frontend
+      pod-template-hash: 6bcc6d4989
+    name: frontend-6bcc6d4989-49jsb
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: frontend-6bcc6d4989
+      uid: a59e5fb3-ff3a-402d-8e4c-676be7e27867
+    resourceVersion: "197424"
+    uid: 80ddc2fd-c022-4c27-a058-f48411c83a75
+  spec:
+    containers:
+    - image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+      imagePullPolicy: IfNotPresent
+      name: frontend
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-6dkqk
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: ip-10-0-12-195.ap-south-1.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-6dkqk
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:04Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:02Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:04Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:04Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:02Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://ec03832e5b80dad2ce7428f0bd9abf051b710409a23a26941f56e99bc5cfa423
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+      imageID: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend@sha256:c17a240fe9ada67a523e011a70594ac9d41d7ee295e95e44b39a82f9eb4d777a
+      lastState: {}
+      name: frontend
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-07T13:21:03Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-6dkqk
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.0.12.195
+    hostIPs:
+    - ip: 10.0.12.195
+    phase: Running
+    podIP: 10.0.12.243
+    podIPs:
+    - ip: 10.0.12.243
+    qosClass: BestEffort
+    startTime: "2026-06-07T13:21:02Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-06-09T16:35:21Z"
+    generateName: frontend-6bcc6d4989-
+    labels:
+      app: frontend
+      pod-template-hash: 6bcc6d4989
+    name: frontend-6bcc6d4989-4vn8n
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: frontend-6bcc6d4989
+      uid: a59e5fb3-ff3a-402d-8e4c-676be7e27867
+    resourceVersion: "778265"
+    uid: 66a7eb40-ac4c-4f1b-8d66-16d32b7615ab
+  spec:
+    containers:
+    - image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+      imagePullPolicy: IfNotPresent
+      name: frontend
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-bcg4w
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: ip-10-0-12-195.ap-south-1.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-bcg4w
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-09T16:35:22Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-09T16:35:21Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-09T16:35:22Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-09T16:35:22Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-09T16:35:21Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://bc199ca0b6e253cf8b15dfe8ccf28ae9d0f4bbc81b782914d530fd147712b590
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+      imageID: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend@sha256:c17a240fe9ada67a523e011a70594ac9d41d7ee295e95e44b39a82f9eb4d777a
+      lastState: {}
+      name: frontend
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-09T16:35:21Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-bcg4w
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.0.12.195
+    hostIPs:
+    - ip: 10.0.12.195
+    phase: Running
+    podIP: 10.0.12.205
+    podIPs:
+    - ip: 10.0.12.205
+    qosClass: BestEffort
+    startTime: "2026-06-09T16:35:21Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    generateName: frontend-6bcc6d4989-
+    labels:
+      app: frontend
+      pod-template-hash: 6bcc6d4989
+    name: frontend-6bcc6d4989-crft9
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: frontend-6bcc6d4989
+      uid: a59e5fb3-ff3a-402d-8e4c-676be7e27867
+    resourceVersion: "197429"
+    uid: 0f8a9267-7e8c-4724-be4f-2df911e507d5
+  spec:
+    containers:
+    - image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+      imagePullPolicy: IfNotPresent
+      name: frontend
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-nw5tp
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: ip-10-0-12-195.ap-south-1.compute.internal
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-nw5tp
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:04Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:03Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:04Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:04Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-06-07T13:21:03Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://38ca8edda1b348a80a92a62be4e7f0345a4b868b6773dca37373ede40667d0c7
+      image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+      imageID: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend@sha256:c17a240fe9ada67a523e011a70594ac9d41d7ee295e95e44b39a82f9eb4d777a
+      lastState: {}
+      name: frontend
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-07T13:21:03Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-nw5tp
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.0.12.195
+    hostIPs:
+    - ip: 10.0.12.195
+    phase: Running
+    podIP: 10.0.12.111
+    podIPs:
+    - ip: 10.0.12.111
+    qosClass: BestEffort
+    startTime: "2026-06-07T13:21:03Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: gitblog:/Service:gitblog/backend-service
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"gitblog:/Service:gitblog/backend-service"},"name":"backend-service","namespace":"gitblog"},"spec":{"ports":[{"port":5000,"targetPort":5000}],"selector":{"app":"backend"},"type":"ClusterIP"}}
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: backend-service
+    namespace: gitblog
+    resourceVersion: "776841"
+    uid: e7c217c2-a6a3-48a8-a1ec-5ce28e524e79
+  spec:
+    clusterIP: 172.20.97.149
+    clusterIPs:
+    - 172.20.97.149
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 5000
+      protocol: TCP
+      targetPort: 5000
+    selector:
+      app: backend
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: gitblog:/Service:gitblog/frontend-service
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"gitblog:/Service:gitblog/frontend-service"},"name":"frontend-service","namespace":"gitblog"},"spec":{"ports":[{"port":80,"targetPort":80}],"selector":{"app":"frontend"},"type":"ClusterIP"}}
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: frontend-service
+    namespace: gitblog
+    resourceVersion: "776840"
+    uid: 1db172da-148d-4393-8c02-f2d82b33113e
+  spec:
+    clusterIP: 172.20.245.144
+    clusterIPs:
+    - 172.20.245.144
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: frontend
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: gitblog:apps/Deployment:gitblog/backend
+      deployment.kubernetes.io/revision: "7"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"gitblog:apps/Deployment:gitblog/backend"},"name":"backend","namespace":"gitblog"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"backend"}},"template":{"metadata":{"labels":{"app":"backend"}},"spec":{"containers":[{"env":[{"name":"PORT","value":"5000"},{"name":"DB_HOST","valueFrom":{"configMapKeyRef":{"key":"DB_HOST","name":"gitblog-config"}}},{"name":"DB_PORT","valueFrom":{"configMapKeyRef":{"key":"DB_PORT","name":"gitblog-config"}}},{"name":"DB_NAME","valueFrom":{"configMapKeyRef":{"key":"DB_NAME","name":"gitblog-config"}}},{"name":"DB_USER","valueFrom":{"secretKeyRef":{"key":"DB_USER","name":"gitblog-secret"}}},{"name":"DB_PASSWORD","valueFrom":{"secretKeyRef":{"key":"DB_PASSWORD","name":"gitblog-secret"}}},{"name":"JWT_SECRET","valueFrom":{"secretKeyRef":{"key":"JWT_SECRET","name":"gitblog-secret"}}}],"image":"585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0","imagePullPolicy":"IfNotPresent","name":"backend","ports":[{"containerPort":5000}]}]}}}}
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    generation: 8
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: backend
+    namespace: gitblog
+    resourceVersion: "776848"
+    uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 2
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: backend
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-06-07T21:42:49+05:30"
+        creationTimestamp: null
+        labels:
+          app: backend
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 2
+    conditions:
+    - lastTransitionTime: "2026-06-07T13:21:04Z"
+      lastUpdateTime: "2026-06-07T13:21:04Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-06-07T13:21:02Z"
+      lastUpdateTime: "2026-06-07T16:12:51Z"
+      message: ReplicaSet "backend-86466d6dcc" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 8
+    readyReplicas: 2
+    replicas: 2
+    updatedReplicas: 2
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: gitblog:apps/Deployment:gitblog/frontend
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"gitblog:apps/Deployment:gitblog/frontend"},"name":"frontend","namespace":"gitblog"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"frontend"}},"template":{"metadata":{"labels":{"app":"frontend"}},"spec":{"containers":[{"image":"585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0","imagePullPolicy":"IfNotPresent","name":"frontend","ports":[{"containerPort":80}]}]}}}}
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    generation: 3
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: frontend
+    namespace: gitblog
+    resourceVersion: "778269"
+    uid: ca0c4db1-6368-40e8-b794-7e20f30e3258
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: frontend
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: frontend
+      spec:
+        containers:
+        - image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+          imagePullPolicy: IfNotPresent
+          name: frontend
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2026-06-07T13:21:02Z"
+      lastUpdateTime: "2026-06-07T13:21:04Z"
+      message: ReplicaSet "frontend-6bcc6d4989" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-06-09T16:35:22Z"
+      lastUpdateTime: "2026-06-09T16:35:22Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 3
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "6"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T16:12:43Z"
+    generation: 4
+    labels:
+      app: backend
+      pod-template-hash: 5bc6f956fb
+    name: backend-5bc6f956fb
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "230418"
+    uid: b2f78724-6256-4420-b76d-e327c2ba02b4
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 5bc6f956fb
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-06-07T19:17:36+05:30"
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 5bc6f956fb
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "3"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:44:22Z"
+    generation: 4
+    labels:
+      app: backend
+      pod-template-hash: 6bb57555fc
+    name: backend-6bb57555fc
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "202731"
+    uid: 8f5d2765-67da-402f-8810-78c4d1f3d85a
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 6bb57555fc
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-06-07T19:14:23+05:30"
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 6bb57555fc
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:2.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "4"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:47:30Z"
+    generation: 4
+    labels:
+      app: backend
+      pod-template-hash: 6c6dd78c98
+    name: backend-6c6dd78c98
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "202832"
+    uid: b042172c-0446-45b3-a70e-dbb1988ba855
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 6c6dd78c98
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-06-07T19:14:23+05:30"
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 6c6dd78c98
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:3.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "5"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:47:35Z"
+    generation: 4
+    labels:
+      app: backend
+      pod-template-hash: 7c9bf7b76f
+    name: backend-7c9bf7b76f
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "230319"
+    uid: 93ee59fe-d969-47f9-a70a-85c759483941
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 7c9bf7b76f
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-06-07T19:17:36+05:30"
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 7c9bf7b76f
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:3.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: gitblog:apps/Deployment:gitblog/backend
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "7"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T16:12:49Z"
+    generation: 2
+    labels:
+      app: backend
+      pod-template-hash: 86466d6dcc
+    name: backend-86466d6dcc
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "776845"
+    uid: 1a653558-7c5e-4cd2-a1b1-b5e2e2c514a9
+  spec:
+    replicas: 2
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 86466d6dcc
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2026-06-07T21:42:49+05:30"
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 86466d6dcc
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:4.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 2
+    fullyLabeledReplicas: 2
+    observedGeneration: 2
+    readyReplicas: 2
+    replicas: 2
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "2"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:44:03Z"
+    generation: 4
+    labels:
+      app: backend
+      pod-template-hash: 959d6f6c4
+    name: backend-959d6f6c4
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "202032"
+    uid: 75c79e59-20c6-4f99-a1ed-1247ef423e21
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 959d6f6c4
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 959d6f6c4
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:2.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    generation: 3
+    labels:
+      app: backend
+      pod-template-hash: 95bf94d67
+    name: backend-95bf94d67
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: backend
+      uid: 7865b6ad-0901-4d67-ba0b-967c3dc78898
+    resourceVersion: "201892"
+    uid: 5a28c713-5afc-41eb-a84b-6b0cbc350db8
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: backend
+        pod-template-hash: 95bf94d67
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: backend
+          pod-template-hash: 95bf94d67
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "5000"
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DB_HOST
+                name: gitblog-config
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DB_PORT
+                name: gitblog-config
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: DB_NAME
+                name: gitblog-config
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: DB_USER
+                name: gitblog-secret
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: DB_PASSWORD
+                name: gitblog-secret
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: gitblog-secret
+          image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-backend:1.0
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: gitblog:apps/Deployment:gitblog/frontend
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: gitblog
+      meta.helm.sh/release-namespace: gitblog
+    creationTimestamp: "2026-06-07T13:21:02Z"
+    generation: 2
+    labels:
+      app: frontend
+      pod-template-hash: 6bcc6d4989
+    name: frontend-6bcc6d4989
+    namespace: gitblog
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: frontend
+      uid: ca0c4db1-6368-40e8-b794-7e20f30e3258
+    resourceVersion: "778266"
+    uid: a59e5fb3-ff3a-402d-8e4c-676be7e27867
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: frontend
+        pod-template-hash: 6bcc6d4989
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: frontend
+          pod-template-hash: 6bcc6d4989
+      spec:
+        containers:
+        - image: 585539844585.dkr.ecr.ap-south-1.amazonaws.com/gitblog-frontend:2.0
+          imagePullPolicy: IfNotPresent
+          name: frontend
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 2
+    readyReplicas: 3
+    replicas: 3
+kind: List
+metadata:
+  resourceVersion: ""
