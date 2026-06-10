@@ -23,10 +23,8 @@ config:
   DB_PORT: "5432"
   DB_NAME: gitblog
 
-secret:
-  DB_USER: postgres
-  DB_PASSWORD: 'pass'
-  JWT_SECRET: super-secret-jwt-key
-
 ingress:
+  enabled: true
+
+externalSecrets:
   enabled: true
