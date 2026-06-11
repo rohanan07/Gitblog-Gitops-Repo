@@ -1,5 +1,5 @@
 image:
-  tag: "4692a89"
+  tag: "9cf8dbe"
 frontend:
   replicaCount: 2
   image:
